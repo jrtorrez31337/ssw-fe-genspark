@@ -49,6 +49,7 @@ A React + TypeScript web client for the SSW Galaxy MMO game. Features character 
 ## URLs
 
 - **Development**: http://localhost:3000
+- **Public URL**: https://3000-ii6xx8ayzce5eft1yioym-583b4d74.sandbox.novita.ai
 - **Backend API**: http://localhost:8080/v1 (proxied through Vite)
 - **GitHub**: (Repository will be created)
 
