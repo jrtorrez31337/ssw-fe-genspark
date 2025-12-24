@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import { characterApi, CharacterAttributes } from '../api/characters';
+import { characterApi, type CharacterAttributes } from '../api/characters';
 import { useAuthStore } from '../features/auth/store';
 import { usePointAllocation } from '../hooks/usePointAllocation';
 import { Card } from '../components/ui/Card';
@@ -49,7 +49,7 @@ export function CharacterCreatePage() {
     increment,
     decrement,
     isValid,
-  } = usePointAllocation({
+  } = usePointAllocation<CharacterAttributes>({
     totalPoints: 20,
     minPerStat: 1,
     maxPerStat: 10,
@@ -72,7 +72,7 @@ export function CharacterCreatePage() {
       profile_id: profileId,
       name,
       home_sector: homeSector,
-      attributes: allocation as CharacterAttributes,
+      attributes: allocation,
     });
   };
 

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import { authApi, LoginRequest, SignupRequest } from '../../../api/auth';
+import { authApi, type LoginRequest, type SignupRequest } from '../../../api/auth';
 import { useAuthStore } from '../store';
 
 export function useAuth() {

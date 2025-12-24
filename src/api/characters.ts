@@ -1,6 +1,6 @@
 import { apiClient } from './client';
 
-export interface CharacterAttributes {
+export interface CharacterAttributes extends Record<string, number> {
   piloting: number;
   engineering: number;
   science: number;

@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
-import { ShipType } from '../api/ships';
+import { type ShipType } from '../api/ships';
 import './ShipPreview.css';
 
 interface ShipModel3DProps {

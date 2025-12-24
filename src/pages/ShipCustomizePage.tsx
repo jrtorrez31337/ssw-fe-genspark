@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import { shipApi, ShipType, ShipStats, calculateShipStats } from '../api/ships';
+import { shipApi, type ShipType, type ShipStats, calculateShipStats } from '../api/ships';
 import { useAuthStore } from '../features/auth/store';
 import { usePointAllocation } from '../hooks/usePointAllocation';
 import { ShipPreview } from '../scenes/ShipPreview';
@@ -82,7 +82,7 @@ export function ShipCustomizePage() {
     increment,
     decrement,
     isValid,
-  } = usePointAllocation({
+  } = usePointAllocation<ShipStats>({
     totalPoints: 30,
     minPerStat: 1,
     maxPerStat: 15,
@@ -105,11 +105,11 @@ export function ShipCustomizePage() {
       owner_id: profileId,
       ship_type: shipType,
       name: name || undefined,
-      stat_allocation: allocation as ShipStats,
+      stat_allocation: allocation,
     });
   };
 
-  const finalStats = calculateShipStats(allocation as ShipStats, shipType);
+  const finalStats = calculateShipStats(allocation, shipType);
 
   return (
     <div className="creation-container">

@@ -1,6 +1,6 @@
 import { apiClient } from './client';
 
-export interface ShipStats {
+export interface ShipStats extends Record<string, number> {
   hull_strength: number;
   shield_capacity: number;
   speed: number;
@@ -60,7 +60,15 @@ export const shipApi = {
 };
 
 // Ship type bonuses for reference
-export const SHIP_TYPE_BONUSES = {
+interface ShipBonuses {
+  hull?: number;
+  shield?: number;
+  speed?: number;
+  cargo?: number;
+  sensors?: number;
+}
+
+export const SHIP_TYPE_BONUSES: Record<ShipType, ShipBonuses> = {
   scout: {
     speed: 2,
     sensors: 2,
@@ -78,7 +86,7 @@ export const SHIP_TYPE_BONUSES = {
     cargo: 10,
     sensors: 2,
   },
-} as const;
+};
 
 // Calculate final stats with bonuses
 export function calculateShipStats(stats: ShipStats, shipType: ShipType) {
