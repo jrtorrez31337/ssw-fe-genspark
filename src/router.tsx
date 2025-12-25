@@ -4,6 +4,7 @@ import { SignupPage } from './pages/SignupPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { CharacterCreatePage } from './pages/CharacterCreatePage';
 import { ShipCustomizePage } from './pages/ShipCustomizePage';
+import { ShipInventoryPage } from './pages/ShipInventoryPage';
 import { ProtectedRoute } from './components/layout/ProtectedRoute';
 
 export const router = createBrowserRouter([
@@ -40,6 +41,14 @@ export const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <ShipCustomizePage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/ship/:shipId/inventory',
+    element: (
+      <ProtectedRoute>
+        <ShipInventoryPage />
       </ProtectedRoute>
     ),
   },

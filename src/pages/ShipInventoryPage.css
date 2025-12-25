@@ -1,0 +1,110 @@
+.inventory-page {
+  min-height: 100vh;
+  padding: 32px;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+}
+
+.inventory-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.ship-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ship-title h1 {
+  margin: 0;
+  color: white;
+  font-size: 36px;
+}
+
+.ship-type-tag {
+  background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.inventory-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.empty-cargo {
+  text-align: center;
+  padding: 48px 24px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.empty-cargo p {
+  margin: 8px 0;
+}
+
+.empty-hint {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.inventory-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ship-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.stat-value {
+  color: white;
+  font-weight: 600;
+}
+
+.loading-container,
+.error-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+@media (max-width: 1024px) {
+  .inventory-content {
+    grid-template-columns: 1fr;
+  }
+}

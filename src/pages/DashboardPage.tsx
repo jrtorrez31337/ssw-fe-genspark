@@ -113,6 +113,13 @@ export function DashboardPage() {
                     </div>
                   </div>
                   <p className="item-detail">Location: {ship.location_sector}</p>
+                  <Button
+                    size="small"
+                    onClick={() => navigate(`/ship/${ship.id}/inventory`)}
+                    style={{ marginTop: '12px', width: '100%' }}
+                  >
+                    View Inventory
+                  </Button>
                 </div>
               ))}
             </div>
