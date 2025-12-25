@@ -1,11 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { characterApi } from '../api/characters';
 import { shipApi } from '../api/ships';
+import type { Ship } from '../api/ships';
 import { useAuthStore } from '../features/auth/store';
 import { useAuth } from '../features/auth/hooks/useAuth';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
+import { ShipControlPanel } from '../components/movement/ShipControlPanel';
 import './DashboardPage.css';
 
 export function DashboardPage() {
@@ -13,6 +16,7 @@ export function DashboardPage() {
   const displayName = useAuthStore((state) => state.displayName);
   const { logout } = useAuth();
   const navigate = useNavigate();
+  const [selectedShip, setSelectedShip] = useState<Ship | null>(null);
 
   const charactersQuery = useQuery({
     queryKey: ['characters', profileId],
@@ -113,13 +117,23 @@ export function DashboardPage() {
                     </div>
                   </div>
                   <p className="item-detail">Location: {ship.location_sector}</p>
-                  <Button
-                    size="small"
-                    onClick={() => navigate(`/ship/${ship.id}/inventory`)}
-                    style={{ marginTop: '12px', width: '100%' }}
-                  >
-                    View Inventory
-                  </Button>
+                  <div style={{ marginTop: '12px', display: 'flex', gap: '8px' }}>
+                    <Button
+                      size="small"
+                      onClick={() => navigate(`/ship/${ship.id}/inventory`)}
+                      style={{ flex: 1 }}
+                    >
+                      Inventory
+                    </Button>
+                    <Button
+                      size="small"
+                      onClick={() => setSelectedShip(ship)}
+                      variant="primary"
+                      style={{ flex: 1 }}
+                    >
+                      Ship Controls
+                    </Button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -137,6 +151,36 @@ export function DashboardPage() {
           </div>
         </Card>
       </div>
+
+      {/* Ship Control Modal */}
+      {selectedShip && (
+        <div className="ship-control-modal-overlay" onClick={() => setSelectedShip(null)}>
+          <div className="ship-control-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="ship-control-modal-header">
+              <h2 className="ship-control-modal-title">
+                {selectedShip.name || 'Unnamed Ship'} - {selectedShip.ship_type}
+              </h2>
+              <button className="ship-control-modal-close" onClick={() => setSelectedShip(null)}>
+                ×
+              </button>
+            </div>
+            <div className="ship-control-modal-content">
+              <ShipControlPanel
+                ship={selectedShip}
+                onRefresh={() => {
+                  shipsQuery.refetch();
+                  // Update the selected ship with the latest data
+                  shipsQuery.data?.forEach(s => {
+                    if (s.id === selectedShip.id) {
+                      setSelectedShip(s);
+                    }
+                  });
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

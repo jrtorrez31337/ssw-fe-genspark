@@ -1,0 +1,190 @@
+.docking-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.docking-dialog {
+  background: linear-gradient(135deg, rgba(15, 12, 41, 0.95) 0%, rgba(48, 43, 99, 0.95) 50%, rgba(36, 36, 62, 0.95) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.docking-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.docking-dialog-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+}
+
+.docking-dialog-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.docking-dialog-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.docking-dialog-content {
+  padding: 24px;
+}
+
+.docking-dialog-loading,
+.docking-dialog-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.docking-stations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.docking-station-card {
+  padding: 16px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.docking-station-card:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  background: rgba(139, 92, 246, 0.05);
+}
+
+.docking-station-card--selected {
+  border-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.docking-station-card--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.docking-station-card--disabled:hover {
+  border-color: rgba(139, 92, 246, 0.2);
+  background: transparent;
+}
+
+.docking-station-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.docking-station-info {
+  flex: 1;
+}
+
+.docking-station-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 4px;
+}
+
+.docking-station-type {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+}
+
+.docking-station-services {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.docking-station-service-badge {
+  padding: 4px 8px;
+  font-size: 12px;
+  background: rgba(139, 92, 246, 0.2);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.docking-station-status {
+  text-align: right;
+  min-width: 140px;
+}
+
+.docking-station-distance {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.docking-station-distance--in-range {
+  color: #34d399;
+}
+
+.docking-station-distance--out-of-range {
+  color: #f87171;
+}
+
+.docking-station-capacity {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.docking-station-capacity--full {
+  color: #f87171;
+}
+
+.docking-dialog-error {
+  padding: 12px 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  color: #fca5a5;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+.docking-dialog-actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.docking-dialog-actions button {
+  flex: 1;
+}

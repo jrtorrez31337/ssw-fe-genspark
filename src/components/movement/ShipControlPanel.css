@@ -1,0 +1,82 @@
+.ship-control-panel {
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(15, 12, 41, 0.8) 0%, rgba(48, 43, 99, 0.8) 50%, rgba(36, 36, 62, 0.8) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.ship-control-panel-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 20px 0;
+}
+
+.ship-control-panel-warning {
+  padding: 12px 16px;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 8px;
+  color: #fbbf24;
+  font-size: 13px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.ship-control-panel-status {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ship-control-panel-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ship-control-panel-stat-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ship-control-panel-stat-value {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.ship-control-panel-stat-value--docked {
+  color: #34d399;
+}
+
+.ship-control-panel-stat-value--free {
+  color: #60a5fa;
+}
+
+.ship-control-panel-section {
+  margin-bottom: 20px;
+}
+
+.ship-control-panel-error {
+  padding: 12px 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  color: #fca5a5;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.ship-control-panel-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ship-control-panel-actions button {
+  width: 100%;
+}

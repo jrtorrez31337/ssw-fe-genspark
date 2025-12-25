@@ -29,6 +29,12 @@ export interface Ship {
   cargo_capacity: number;
   current_cargo_used?: number;
   location_sector: string;
+  position?: { x: number; y: number; z: number };
+  docked_at?: string; // Station ID if docked
+  last_jump_at?: string; // ISO timestamp
+  fuel_current?: number;
+  fuel_capacity?: number;
+  in_combat?: boolean;
   created_at: string;
   stat_allocation?: ShipStats;
 }
